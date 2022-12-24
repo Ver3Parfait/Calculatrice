@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(19, 18, 18);
+
+}
+
+#calculator{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(19, 18, 18);
+    flex-direction: column;
+}
+
+#board{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 70vh;
+    width: 100vw;
+    flex-direction: column;
+}
+
+
+.row{
+    display: flex;
+    flex: 1;
+}
+
+.cell{
+    border: none;
+    cursor:pointer;
+    font-family:Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 2.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 10px;
+    height: 90px;
+    width: 90px;
+    background-color: rgb(63, 66, 64);
+}
+
+.cell:active{
+    background-color: rgba(255, 255, 255, 0.671)
+}
+
+.bgGrey:active{
+    background-color: rgba(255, 255, 255, 0.869)
+}
+
+#color{
+background-color: white;
+color: orange;
+}
+
+.white{
+    color: white;
+}
+
+.bgGrey{
+    background-color: grey;
+}
+
+.bgOrange{
+    background-color: orange;
+}
+
+.roundedZero{
+    width: 200px;
+    border-radius: 50px;
+    justify-content: flex-start;
+    padding: 30px;
+}
+
+#result{
+    height: 30vh;
+    width: 400px;
+    font-weight: 200;
+    font-family: Helvetica, sans-serif;
+    display: flex;
+    color: white;
+    font-size: 5em;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+@media screen and (max-width: 430px) {
+    .cell{
+        justify-content: center;
+        align-items: center;
+        height: 70px;
+        width: 70px;
+}.row{
+    flex: 0;
+}.roundedZero{
+    width: 160px;
+}#board{
+    height: max-content;
+}    #result{
+    margin-right: 15px;
+  width: 95vw;  
+}#calculator{
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+}
+}

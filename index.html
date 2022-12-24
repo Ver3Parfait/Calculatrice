@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/assets/images/f19c7e914f0adb59c0833d00d09f1ea7.png">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Calculatrice</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <div id="calculator">
+        <div id="result">
+            
+        </div>
+        <div id="board">
+            <div class="row">
+                <button id="AC" value="AC" onclick="Calculator(this)"  class="cell bgGrey">AC</button>
+                <button value="+/-" onclick="Calculator(this)" class="cell bgGrey">+/-</button>
+                <button value="%" onclick="Calculator(this)" class="cell bgGrey">%</button>
+                <button value="÷" onclick="Calculator(this)" class="cell white bgOrange">÷</button>
+              </div>
+              <div class="row">
+                <button value="7" onclick="Calculator(this)" class="cell white">7</button>
+                <button value="8" onclick="Calculator(this)" class="cell white">8</button>
+                <button value="9" onclick="Calculator(this)" class="cell white">9</button>
+                <button value="x" onclick="Calculator(this)" class="cell white bgOrange">x</button>
+              </div>
+              <div class="row">
+                <button value="4" onclick="Calculator(this)" class="cell white">4</button>
+                <button value="5" onclick="Calculator(this)" class="cell white">5</button>
+                <button value="6" onclick="Calculator(this)" class="cell white">6</button>
+                <button value="substarct" onclick="Calculator(this)" class="cell white bgOrange">-</button>
+              </div>
+              <div class="row">
+                <button value="1" onclick="Calculator(this)" class="cell white">1</button>
+                <button value="2" onclick="Calculator(this)" class="cell white">2</button>
+                <button value="3" onclick="Calculator(this)" class="cell white">3</button>
+                <button  value="add" onclick="Calculator(this)"class="cell white bgOrange">+</button>
+              </div>
+              <div class="row">
+                <button value="0" onclick="Calculator(this)" class="cell white roundedZero">0</button>
+                <button value="." onclick="Calculator(this)" class="cell white">,</button>
+                <button value="=" onclick="Calculator(this)" class="cell white bgOrange">=</button>
+                <button style="display: none;" id="test"></button>
+              </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
