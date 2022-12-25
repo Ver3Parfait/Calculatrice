@@ -12,14 +12,11 @@ let calcPars = 0;
 let calcPars2 = 0;
 let valueElem;
 let sign = "";
-let sign2 = "";
 let reset = document.querySelector('#AC')
 let onclick = document.querySelector('#test');
 let orange = 'background-color: orange;'
 
 function Calculator(elem) {
-console.log(calc2.length%9);
-
   valueElem = elem.value;
   if (valueElem == "add") {
     Addition();
@@ -29,6 +26,9 @@ console.log(calc2.length%9);
   } else if (valueElem == "=") {
     Equal();
   } else if (valueElem == "+/-") {
+    MoreOrLess();
+  } else if (valueElem == "%") {
+    PerCent();
   } else if (valueElem == "substarct") {
     onclick.removeAttribute('id', 'color')
     onclick = elem
@@ -48,7 +48,7 @@ console.log(calc2.length%9);
     Erase();
   } else if (valueElem == "C") {
     EraseCalc();
-  } else {
+  }else {
         onclick.removeAttribute('id', 'color')
         TakeNumbers();
         if (calc != "0" || calc2 != "0") {
@@ -64,8 +64,6 @@ console.log(calc2.length%9);
 function TakeNumbers() {
   if (
     valueElem == "AC" ||
-    valueElem == "+/-" ||
-    valueElem == "%" ||
     valueElem == "÷" ||
     valueElem == "x" ||
     valueElem == "substarct" ||
@@ -76,21 +74,49 @@ function TakeNumbers() {
   } else {
     if (turn % 2) {
         if (sign == "") {
+          if (calc[0] == "0" && valueElem != '.') {
+            reduce()
+            resultReal = 0
+            calc = valueElem;
+            result.innerHTML = calc;
+          }else{
+            reduce()
             resultReal = 0
             calc = calc + valueElem;
             result.innerHTML = calc;
+          }
         }else{
+          if (calc[0] == "0" && valueElem != '.') {
+            reduce()
+            calc = valueElem;
+            result.innerHTML = calc;
+          }else{
+            reduce()
             calc = calc + valueElem;
             result.innerHTML = calc;
+          }
+
         }
     } else {
         if (sign == "") {
+          if (calc2[0] == "0" && valueElem != '.') {
+            console.log("A");
+            resultReal = 0
+            calc2 = valueElem;
+            result.innerHTML = calc2;
+          }else{
             resultReal = 0
             calc2 = calc2 + valueElem;
             result.innerHTML = calc2;
+          }
         }else{
-      calc2 = calc2 + valueElem;
-      result.innerHTML = calc2;
+          if (calc2[0] == "0" && valueElem != '.') {
+            calc2 = valueElem;
+            result.innerHTML = calc2;
+          }else{
+            calc2 = calc2 + valueElem;
+            result.innerHTML = calc2;
+          }
         }
     }
   }
@@ -102,8 +128,7 @@ function Addition() {
   if (turn % 2) {
     if (sign == "substarct") {
       Substraction();
-    } else if (sign == "+/-") {
-    } else if (sign == "x") {
+    }else if (sign == "x") {
       Multiplication();
     } else if (sign == "÷") {
       Division();
@@ -114,8 +139,7 @@ function Addition() {
   } else {
     if (sign == "substarct") {
       Substraction();
-    } else if (sign == "+/-") {
-    } else if (sign == "x") {
+    }else if (sign == "x") {
       Multiplication();
     } else if (sign == "÷") {
       Division();
@@ -139,8 +163,7 @@ function Substraction() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "x") {
+      }else if (sign == "x") {
         Multiplication();
       } else if (sign == "÷") {
         Division();
@@ -151,8 +174,7 @@ function Substraction() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "x") {
+      }else if (sign == "x") {
         Multiplication();
       } else if (sign == "÷") {
         Division();
@@ -165,7 +187,6 @@ function Substraction() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "x") {
         Multiplication();
       } else if (sign == "÷") {
@@ -177,8 +198,7 @@ function Substraction() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "x") {
+      }else if (sign == "x") {
         Multiplication();
       } else if (sign == "÷") {
         Division();
@@ -203,7 +223,6 @@ function Multiplication() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "substarct") {
         Substraction();
       } else if (sign == "÷") {
@@ -216,8 +235,7 @@ function Multiplication() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "substarct") {
+      }else if (sign == "substarct") {
         Substraction();
       } else if (sign == "÷") {
         Division();
@@ -229,8 +247,7 @@ function Multiplication() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "substarct") {
+      }else if (sign == "substarct") {
         Substraction();
       } else if (sign == "÷") {
         Division();
@@ -242,7 +259,6 @@ function Multiplication() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "substarct") {
         Substraction();
       } else if (sign == "÷") {
@@ -267,7 +283,6 @@ function Division() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "substarct") {
         Substraction();
       } else if (sign == "x") {
@@ -280,7 +295,6 @@ function Division() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "substarct") {
         Substraction();
       } else if (sign == "x") {
@@ -293,8 +307,7 @@ function Division() {
     if (resultReal == 0) {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
-      } else if (sign == "substarct") {
+      }  else if (sign == "substarct") {
         Substraction();
       } else if (sign == "x") {
         Multiplication();
@@ -306,7 +319,6 @@ function Division() {
     } else {
       if (sign == "add") {
         Addition();
-      } else if (sign == "+/-") {
       } else if (sign == "substarct") {
         Substraction();
       } else if (sign == "x") {
@@ -326,6 +338,66 @@ function Division() {
   sign = valueElem;
 }
 
+function MoreOrLess() {
+  if (turn % 2) {
+    if (resultReal == 0) {
+        resultReal = calcPars - (calcPars * 2);
+  result.innerHTML = parseFloat(resultReal);
+      
+    }else if (calcPars == 0) {
+      resultReal =  resultReal - (resultReal * 2);
+  result.innerHTML = parseFloat(resultReal);
+    
+  }else {
+    calcPars = calcPars - (calcPars * 2);
+  result.innerHTML = parseFloat(calcPars);
+    }
+  } else {
+    if (resultReal == 0) {
+        resultReal = calcPars2 - (calcPars2 * 2);
+  result.innerHTML = parseFloat(resultReal);
+      }else if (calcPars2 == 0) {
+      resultReal =  resultReal - (resultReal * 2);
+  result.innerHTML = parseFloat(resultReal);
+
+    
+  }else {
+    calcPars2 = calcPars2 - (calcPars2 * 2);
+    result.innerHTML = parseFloat(calcPars2);
+
+    }
+  }
+}
+
+function PerCent() {
+  if (turn % 2) {
+    if (resultReal == 0) {
+        resultReal = calcPars / 100;
+  result.innerHTML = parseFloat(resultReal);
+      
+    }else if (calcPars == 0) {
+      resultReal =  resultReal / 100;
+  result.innerHTML = parseFloat(resultReal);
+    
+  }else {
+    calcPars = calcPars / 100;
+  result.innerHTML = parseFloat(calcPars);
+    }
+  } else {
+if (calcPars2 == 0) {
+      resultReal =  resultReal / 100;
+  result.innerHTML = parseFloat(calcPars2);
+  }else {
+    calcPars2 = calcPars2 / 100;
+    result.innerHTML = parseFloat(calcPars2);
+    }
+  }
+  calc2 = "0";
+  resultshow2 = 0;
+  calc = "0";
+  resultshow = 0;
+}
+
 function Equal() {
   if (sign == "add") {
     resultReal = resultReal + (calcPars + calcPars2);
@@ -333,6 +405,8 @@ function Equal() {
     resultReal = resultReal - (calcPars + calcPars2);
   } else if (sign == "x") {
     resultReal = resultReal * (calcPars + calcPars2);
+  } else if (sign == "÷") {
+    resultReal = resultReal / (calcPars + calcPars2);
   } else if (sign == "÷") {
     resultReal = resultReal / (calcPars + calcPars2);
   }
@@ -369,4 +443,11 @@ function EraseCalc() {
   result.innerHTML = "";
   reset.setAttribute('value', 'AC')
   reset.innerHTML = 'AC'
+}
+
+function reduce() {
+if (result.length == 9) {
+  result.setAttribute('style', 'font-size: 1px;')
+}else{
+}
 }
