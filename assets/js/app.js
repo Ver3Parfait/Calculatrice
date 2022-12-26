@@ -75,23 +75,19 @@ function TakeNumbers() {
     if (turn % 2) {
         if (sign == "") {
           if (calc[0] == "0" && valueElem != '.') {
-            reduce()
             resultReal = 0
             calc = valueElem;
             result.innerHTML = calc;
           }else{
-            reduce()
             resultReal = 0
             calc = calc + valueElem;
             result.innerHTML = calc;
           }
         }else{
           if (calc[0] == "0" && valueElem != '.') {
-            reduce()
             calc = valueElem;
             result.innerHTML = calc;
           }else{
-            reduce()
             calc = calc + valueElem;
             result.innerHTML = calc;
           }
@@ -100,7 +96,6 @@ function TakeNumbers() {
     } else {
         if (sign == "") {
           if (calc2[0] == "0" && valueElem != '.') {
-            console.log("A");
             resultReal = 0
             calc2 = valueElem;
             result.innerHTML = calc2;
@@ -386,7 +381,7 @@ function PerCent() {
   } else {
 if (calcPars2 == 0) {
       resultReal =  resultReal / 100;
-  result.innerHTML = parseFloat(calcPars2);
+  result.innerHTML = parseFloat(resultReal);
   }else {
     calcPars2 = calcPars2 / 100;
     result.innerHTML = parseFloat(calcPars2);
@@ -445,9 +440,4 @@ function EraseCalc() {
   reset.innerHTML = 'AC'
 }
 
-function reduce() {
-if (result.length == 9) {
-  result.setAttribute('style', 'font-size: 1px;')
-}else{
-}
-}
+
